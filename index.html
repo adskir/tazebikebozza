@@ -7,7 +7,7 @@
 <link rel="icon" href="img/logo-mark.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 <script src="assets/app.js"></script>
 <title>Tazebike · Bici, e-bike, noleggio e officina a Bari</title>
@@ -18,40 +18,41 @@
 <section class="hero" style="padding:0">
   <div class="wrap">
     <div>
-      <p class="jost" style="color:var(--leaf);font-weight:600;margin-bottom:12px">Ciclofficina a Bari, Via Galvani 6/N</p>
-      <h1>Bici nuove,<br>bici riparate,<br><span>bici a noleggio.</span></h1>
-      <p>Vendita di bici, e-bike e monopattini delle migliori marche, noleggio per qualche ora o per giorni e un'officina che ripara tutto. Ora anche online, con pagamento in 3 rate.</p>
-      <div class="cta">
+      <p class="kick">Ciclofficina a Bari, Via Galvani 6/N</p>
+      <h1>L'officina<br>della <span>bici.</span></h1>
+      <p>Bici, e-bike e monopattini delle migliori marche, noleggio per qualche ora o per giorni e un'officina che ripara tutto. Ora anche online, con pagamento in 3 rate.</p>
+      <div class="cta" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:28px">
         <a class="btn" href="negozio.html">Vai al negozio</a>
         <a class="btn ghost" href="noleggio.html">Noleggia una bici</a>
       </div>
-      <div class="proof" id="proof"></div>
+      <div class="speed">
+        <div><b>Basso · Bergamont</b><span>Rivenditore esclusivo a Bari</span></div>
+        <div><b>3 rate</b><span>Con Klarna, online</span></div>
+        <div><b>1 giorno gratis</b><span>Ogni settimana di noleggio</span></div>
+      </div>
     </div>
-    <div class="collage">
-      <img src="img/emtb-gialla.jpg" alt="E-mountain bike gialla davanti al negozio">
-      <img src="img/gravel-viola.jpg" alt="Gravel viola nel parco">
-      <img src="img/cappellini.jpg" alt="Bici da corsa vintage e cappellini in negozio">
+    <div class="hero-pic">
+      <img src="https://irp.cdn-website.com/a1130d6c/dms3rep/multi/opt/bici-vendita-68d72d2a-14b4c57a-919w.png" alt="Bicicletta in vendita da Tazebike">
+      <a class="hero-badge" id="gbadge" href="#" target="_blank" rel="noopener"><b>4,8 ★</b><span>200 recensioni su Google</span></a>
     </div>
   </div>
 </section>
-<div class="lane" style="background-color:var(--ink)"></div>
+<div class="lane"></div>
+<div class="wrap">
+  <div class="catbar">
+    <a href="negozio.html?cat=bici"><img src="img/basso-strada.jpg" alt=""><span>Bici<small>Corsa, gravel, MTB, città</small></span></a>
+    <a href="negozio.html?cat=ebike"><img src="img/bergamont-ecity-blu.jpg" alt=""><span>E-bike<small>XP, Bergamont, cargo</small></span></a>
+    <a href="negozio.html?cat=acc"><img src="img/borse-telaio.jpg" alt=""><span>Accessori<small>Borse, caschi, occhiali</small></span></a>
+    <a href="noleggio.html"><img src="img/tandem.jpg" alt="" style="object-fit:contain;background:#fff"><span>Noleggio<small>Da €25 al giorno</small></span></a>
+  </div>
+</div>
+
 
 <section>
   <div class="wrap">
-    <div class="sec-head"><div><h2>Cosa cerchi?</h2><span class="dash"></span></div></div>
-    <div class="cats">
-      <a class="cat" href="negozio.html?cat=bici"><img src="img/basso-strada.jpg" alt=""><span>Bici<small>Corsa, gravel, MTB, città, bambini</small></span></a>
-      <a class="cat" href="negozio.html?cat=ebike"><img src="img/bergamont-ecity-blu.jpg" alt=""><span>E-bike<small>XP, Bergamont, pieghevoli, cargo</small></span></a>
-      <a class="cat" href="negozio.html?cat=acc"><img src="img/borse-telaio.jpg" alt=""><span>Accessori<small>Borse, caschi, occhiali, abbigliamento</small></span></a>
-      <a class="cat" href="noleggio.html"><img src="img/tandem.jpg" alt="" style="object-fit:contain;background:#fff"><span>Noleggio<small>Da €25 al giorno, 1 giorno gratis a settimana</small></span></a>
-    </div>
-  </div>
-</section>
-
-<section style="padding-top:0">
-  <div class="wrap">
     <div class="sec-head"><div><h2>In negozio adesso</h2><span class="dash"></span><p class="sub" style="margin-top:12px">Prezzi chiari, disponibilità aggiornata. Ritiri in negozio o ricevi a casa.</p></div><a class="btn ghost" href="negozio.html">Tutto il catalogo</a></div>
     <div class="grid" id="featured"></div>
+    <div class="paybar"><div><b>Carta o PayPal</b><span>Pagamento sicuro online</span></div><div><b>Klarna in 3 rate</b><span>Senza interessi</span></div><div><b>Compass e Santander</b><span>Finanziamenti in negozio</span></div><div><b>Ritiro o consegna</b><span>A Bari o in tutta Italia</span></div></div>
   </div>
 </section>
 
@@ -100,9 +101,9 @@
 <script>
 layout('home');
 const st=openState();
-$('#proof').innerHTML=`<a href="${GOOGLE_URL}" target="_blank" rel="noopener"><b>4,8</b><span><span class="stars">★★★★★</span><br>200 recensioni Google</span></a>
+$('#gbadge').href=GOOGLE_URL;0&&(`<a href="${GOOGLE_URL}" target="_blank" rel="noopener"><b>4,8</b><span><span class="stars">★★★★★</span><br>200 recensioni Google</span></a>
 <div style="display:flex;align-items:center;gap:10px"><b>3 rate</b><span>con Klarna,<br>senza interessi</span></div>
-<div style="display:flex;align-items:center;gap:10px"><b>1 giorno</b><span>di noleggio gratis<br>ogni settimana</span></div>`;
+<div style="display:flex;align-items:center;gap:10px"><b>1 giorno</b><span>di noleggio gratis<br>ogni settimana</span></div>`);
 $('#featured').innerHTML=['xp-id92','grandurance','basso-strada','bergamont-ecity','borse-telaio','graziella','occhiali-outof','monopattino'].map(id=>cardHTML(product(id))).join('');
 $('#board').innerHTML=boardHTML(7);
 $('#reviews').innerHTML=reviewsHTML();
