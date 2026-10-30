@@ -175,17 +175,17 @@ const dayName=(d,long)=>{const dt=new Date();dt.setDate(dt.getDate()+d);return d
 function nextFreeText(fid){const d=nextFree(fid);if(d===0)return {ok:true,t:'Libera oggi'};if(d===1)return {ok:false,t:'Libera da domani, 9:00'};return {ok:false,t:'Libera da '+dayName(d,true)+', 9:00'}}
 function boardHTML(days=7,ids){
   const list=ids?FLEET.filter(f=>ids.includes(f.id)):FLEET;
-  let h='<table><thead><tr><th></th>';
+  let h='<div class="avail-wrap"><table class="avail"><thead><tr><th></th>';
   for(let d=0;d<days;d++)h+=`<th class="${d===0?'today':''}">${d===0?'Oggi':dayName(d)}</th>`;
   h+='</tr></thead><tbody>';
   list.forEach(f=>{const n=nextFreeText(f.id);
-    h+=`<tr><td class="bike"><b>${f.name}</b><span>${f.units} ${f.units>1?'bici':'bici'} · ${f.label}</span><div class="next ${n.ok?'ok':'wait'}">${n.t}</div></td>`;
+    h+=`<tr><td class="b"><div class="bk"><img src="${f.img}" alt=""><div><b>${f.name}</b><small style="color:${n.ok?'#6EE7A1':'#F2C46B'}">${n.t}</small></div></div></td>`;
     for(let d=0;d<days;d++){const dt=new Date();dt.setDate(dt.getDate()+d);
-      if(!HOURS[dt.getDay()].length){h+='<td><span class="cell closed" title="Chiuso">chiuso</span></td>';continue}
+      if(!HOURS[dt.getDay()].length){h+='<td><span class="dot closed">–</span></td>';continue}
       const fr=freeOn(f.id,d),cls=fr<=0?'full':(fr<f.units?'few':'free');
-      h+=`<td><span class="cell ${cls}" title="${fr} libere su ${f.units}">${fr<=0?'occupata':fr+'/'+f.units}</span></td>`}
+      h+=`<td><span class="dot ${cls}" title="${fr} libere su ${f.units}">${fr<=0?'✕':fr}</span></td>`}
     h+='</tr>'});
-  return h+'</tbody></table><div class="legend"><span><i style="background:#1E9E5A"></i>Tutte libere</span><span><i style="background:#C98A1A"></i>Poche libere</span><span><i style="background:#3A3D3E"></i>Occupata</span><span>Demo: nel sito vero la disponibilità si aggiorna quando prenotate o riconsegnate una bici.</span></div>';
+  return h+'</tbody></table></div><div class="avail-legend"><span><i style="background:#1E9E5A"></i>Bici libere</span><span><i style="background:#E59A2E"></i>Ultime</span><span><i style="background:#3A3F46"></i>Occupata</span></div>';
 }
 
 /* ---------- reviews (real, from Google) ---------- */

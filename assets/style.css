@@ -445,3 +445,64 @@ h3{font-weight:700}
   .speed{gap:18px}
   .speed b{font-size:26px}
 }
+
+/* ===== v1 exact look: white header, asphalt hero, orange ===== */
+.top{background:rgba(255,255,255,.97);color:#22262C;border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.top .wrap{height:70px}
+.logo img{height:44px}
+.logo b{color:#22262C;font-size:28px}
+.logo small{color:var(--teal);font-weight:700}
+.menu a{color:#22262C}
+.open-now{color:var(--grey)}
+.burger{color:#22262C}
+.cart-btn{background:#22262C}
+.cart-btn:hover{background:var(--teal)}
+.badge{background:var(--teal);color:#fff}
+@media (max-width:1020px){.menu{background:#fff;top:70px;border-bottom:1px solid var(--line)}.menu a{border-bottom-color:var(--line)}}
+/* compact availability table with photos */
+.avail{width:100%;border-collapse:separate;border-spacing:0 6px}
+.avail th{font-weight:600;font-size:13px;color:#AEB4BC;text-align:center;padding:0 2px}
+.avail th.today{color:#fff}
+.avail td{text-align:center;padding:0 2px}
+.avail td.b{text-align:left;padding-right:12px}
+.avail .bk{display:flex;align-items:center;gap:10px;white-space:nowrap}
+.avail .bk img{width:58px;height:40px;object-fit:contain;background:#fff;border-radius:6px}
+.avail .bk b{font-size:16px;display:block;line-height:1.1}
+.avail .bk small{font-size:12px}
+.dot{display:grid;place-items:center;width:100%;min-width:30px;height:34px;border-radius:6px;font-weight:700;font-size:14px}
+.dot.free{background:#1E9E5A;color:#fff}
+.dot.few{background:#E59A2E;color:#2E1C00}
+.dot.full{background:#3A3F46;color:#7C838C}
+.dot.closed{background:transparent;color:#4A515B}
+.avail-wrap{overflow-x:auto}
+.avail-legend{display:flex;gap:16px;font-size:13px;color:#AEB4BC;margin-top:8px;flex-wrap:wrap}
+.avail-legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px}
+/* rental: v1 list + dark planner */
+.rent2{display:grid;grid-template-columns:1fr 1.05fr;gap:28px;align-items:start}
+.list{display:grid;gap:10px}
+.rbike{display:flex;gap:14px;align-items:center;background:#fff;border-radius:12px;padding:10px 14px 10px 10px;border:2px solid transparent;text-align:left;width:100%}
+.rbike img{width:104px;height:72px;object-fit:contain;background:var(--mist);border-radius:8px;flex-shrink:0}
+.rbike b{display:block;font-family:"Barlow Condensed";font-size:22px;line-height:1.05}
+.rbike span{font-size:14px;color:var(--grey)}
+.rbike .r{margin-left:auto;text-align:right;font-family:"Barlow Condensed";font-weight:800;font-size:28px;line-height:1;white-space:nowrap}
+.rbike .r small{display:block;font-family:"Barlow";font-size:12px;font-weight:500;color:var(--grey)}
+.rbike[aria-pressed="true"]{border-color:var(--teal)}
+.rbike .ok{color:#1E9E5A;font-weight:600}
+.rbike .wait{color:#B86E00;font-weight:600}
+.planner2{background:#22262C;color:#fff;border-radius:16px;padding:24px}
+.planner2 h3{font-size:32px;margin-bottom:14px}
+.planner2 label{font-size:14px;color:#AEB4BC}
+.planner2 input,.planner2 select{width:100%;margin-top:6px;padding:11px 12px;border-radius:8px;border:0;font:inherit}
+.p2-dates{display:grid;grid-template-columns:1fr 1fr 90px;gap:10px}
+.xchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.xchips label{cursor:pointer}
+.xchips input{position:absolute;opacity:0;width:0}
+.xchips span{display:inline-block;border:1.5px solid #4A515B;border-radius:8px;padding:6px 11px;font-size:14px;color:#fff}
+.xchips input:checked+span{background:#fff;color:#22262C;border-color:#fff}
+.xchips input:focus-visible+span{outline:3px solid var(--teal)}
+.p2-total{display:flex;justify-content:space-between;align-items:end;border-top:1px solid #3E444D;padding-top:14px;margin:16px 0}
+.p2-total b{font-family:"Barlow Condensed";font-size:52px;line-height:1}
+.p2-total span{color:#AEB4BC;font-size:15px}
+.p2-av{font-size:14px;font-weight:600;margin-top:12px}
+@media (max-width:900px){.rent2{grid-template-columns:1fr}.p2-dates{grid-template-columns:1fr 1fr}.p2-dates label:last-child{grid-column:1/-1}}
+@media (max-width:520px){.rbike img{width:80px;height:58px}.avail .bk img{width:44px;height:32px}.avail .bk small{display:none}}

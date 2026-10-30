@@ -15,119 +15,87 @@
 </head>
 <body>
 <main>
-<section class="slant-dark" style="padding:40px 0 60px">
-  <div class="wrap">
-    <p class="crumbs" style="color:#A9B4B1;padding:0 0 14px"><a href="index.html">Home</a> / Noleggio</p>
-    <h1 style="font-size:clamp(46px,7vw,86px)">Noleggio bici<br><span style="color:var(--leaf)">a Bari</span></h1>
-    <p class="sub" style="font-size:18px;margin-top:16px">Per esplorare la città, il lungomare e i borghi della Puglia. Bici muscolari e a pedalata assistita per tutte le taglie ed età. Guarda cosa è libero, prenota online, paghi al ritiro in negozio.</p>
-    <div style="display:flex;gap:26px;flex-wrap:wrap;margin:26px 0 34px" class="proof">
-      <div style="display:flex;align-items:center;gap:10px"><b>da €25</b><span>al giorno,<br>casco incluso</span></div>
-      <div style="display:flex;align-items:center;gap:10px"><b>-€5</b><span>al giorno<br>dal 4° giorno</span></div>
-      <div style="display:flex;align-items:center;gap:10px"><b>1 giorno</b><span>gratis<br>ogni settimana</span></div>
+<section class="hero" style="padding:0">
+  <div class="wrap" style="min-height:0;padding-top:44px;padding-bottom:44px;display:block">
+    <p class="kick">Noleggio bici a Bari</p>
+    <h1 style="font-size:clamp(56px,8vw,104px)">Noleggia<br>una <span>bici.</span></h1>
+    <div class="speed">
+      <div><b>da €25</b><span>al giorno, casco incluso</span></div>
+      <div><b>-€5</b><span>al giorno dal 4° giorno</span></div>
+      <div><b>1 giorno gratis</b><span>ogni settimana</span></div>
     </div>
-    <h2 style="font-size:30px;margin-bottom:12px">Disponibilità nei prossimi giorni</h2>
-    <div class="board" id="board" style="background:#0B0C0C"></div>
   </div>
 </section>
 
-<section id="prenota">
-  <div class="wrap">
-    <div class="sec-head"><div><h2>Scegli la bici</h2><span class="dash"></span></div></div>
-    <div class="fleet" id="fleet" role="group" aria-label="Scegli la bici"></div>
-  </div>
-</section>
-
-<section class="slant-sage" style="padding-top:60px">
-  <div class="wrap planner">
-    <div class="panel">
-      <h2 style="font-size:30px;margin-bottom:16px">Date e accessori</h2>
-      <div class="fields">
-        <label class="field">Ritiro<input type="date" id="d1"></label>
-        <label class="field">Riconsegna<input type="date" id="d2"></label>
-        <label class="field">Quante bici?<select id="qty"></select></label>
-        <label class="field">Orario di ritiro<select id="time"><option>9:00</option><option>10:00</option><option>11:00</option><option>12:00</option><option>16:00</option><option>17:00</option><option>18:00</option></select></label>
+<section style="background:var(--mist);padding:56px 0">
+  <div class="wrap rent2">
+    <div class="list" id="list" role="group" aria-label="Scegli la bici"></div>
+    <div class="planner2" aria-live="polite">
+      <h3>Calcola e prenota</h3>
+      <div class="p2-dates">
+        <label>Ritiro<input type="date" id="d1"></label>
+        <label>Riconsegna<input type="date" id="d2"></label>
+        <label>Bici<select id="qty"></select></label>
       </div>
-      <p id="avail" style="margin-top:12px;font-weight:500"></p>
-      <h3 style="font-size:20px;margin-top:22px">Aggiungi accessori</h3>
-      <div class="extras" id="extras"></div>
-      <h3 style="font-size:20px;margin-top:22px">I tuoi dati</h3>
-      <div class="fields" style="margin-top:8px">
-        <label class="field">Nome<input type="text" id="name" autocomplete="name"></label>
-        <label class="field">Telefono<input type="tel" id="tel" autocomplete="tel"></label>
-      </div>
+      <p class="p2-av" id="avail"></p>
+      <div class="xchips" id="extras"></div>
+      <div class="track" id="track" aria-hidden="true" style="margin-top:16px"></div>
+      <div class="p2-total"><span id="sumTxt"></span><b id="tot">€0</b></div>
+      <a class="btn" style="width:100%" id="book" href="#" target="_blank" rel="noopener">Prenota su WhatsApp</a>
+      <p style="font-size:13px;color:#AEB4BC;margin-top:10px">Noleggio a giornata, ritiro e riconsegna 9–19. Paghi in negozio con un documento.</p>
     </div>
-    <aside class="summary" aria-live="polite">
-      <h3>Il tuo noleggio</h3>
-      <div id="sumBike" style="color:#C9D4D1"></div>
-      <div class="track" id="track" aria-hidden="true"></div>
-      <div class="legend" style="margin-top:4px"><span><i style="background:var(--leaf)"></i>Giorno pagato</span><span><i style="background:#1E9E5A"></i>Giorno gratis</span></div>
-      <div class="lines" id="lines"></div>
-      <div class="total"><span style="color:#C9D4D1">Totale</span><b id="tot">€0</b></div>
-      <a class="btn" id="book" href="#" target="_blank" rel="noopener">Prenota il noleggio</a>
-      <p class="note">Nessun pagamento online: paghi in negozio al ritiro, con documento d'identità. Nel sito finale la prenotazione blocca subito la bici nel calendario e vi arriva una notifica.</p>
-    </aside>
   </div>
 </section>
 
-<section>
-  <div class="wrap two" style="align-items:start">
-    <div>
-      <h2 style="font-size:38px">Tour con guida</h2><span class="dash"></span>
-      <p class="sub" style="margin-top:14px">Scopri la Puglia e i suoi borghi con una nostra guida. Percorsi per tutti, anche in e-bike.</p>
-      <a class="btn wa" style="margin-top:18px" href="#" id="tourBtn" target="_blank" rel="noopener">Chiedi date e prezzi del tour</a>
-      <p class="sub" style="font-size:14px;margin-top:8px"><span class="todo">percorsi, durata e prezzi da Tazebike</span></p>
-    </div>
-    <div>
-      <h2 style="font-size:38px">Condizioni di noleggio</h2><span class="dash"></span>
-      <details style="margin-top:10px"><summary>Cosa serve per noleggiare</summary><div>Un documento d'identità valido. Il noleggio è riservato ai maggiorenni; i minorenni possono pedalare accompagnati da un adulto che se ne assume la responsabilità.</div></details>
-      <details><summary>Ritiro e riconsegna</summary><div>Ritiro e riconsegna in negozio, dalle 9:00 alle 19:00, nello stesso luogo del noleggio. Il pagamento si fa al momento del ritiro.</div></details>
-      <details><summary>Casco e sicurezza</summary><div>Il casco è obbligatorio ed è incluso nel noleggio. La bici va usata rispettando il Codice della strada.</div></details>
-      <details><summary>Danni, furto e smarrimento</summary><div>Il cliente è responsabile della bici fino alla riconsegna. In caso di danni o smarrimento di chiavi e accessori si applica il listino in negozio; in caso di furto serve la denuncia. Le condizioni complete si firmano al ritiro.</div></details>
-    </div>
+<section class="slant-dark" style="padding:56px 0">
+  <div class="wrap">
+    <h2 style="font-size:clamp(34px,4.6vw,52px);margin-bottom:18px">Cosa è libero</h2>
+    <div id="board"></div>
+  </div>
+</section>
+
+<section style="padding:56px 0">
+  <div class="wrap" style="max-width:820px">
+    <h2 style="font-size:40px;margin-bottom:6px">Condizioni</h2>
+    <details><summary>Cosa serve</summary><div>Documento d'identità. Maggiorenni; i minori pedalano con un adulto.</div></details>
+    <details><summary>Orari</summary><div>Ritiro e riconsegna in negozio, dalle 9:00 alle 19:00.</div></details>
+    <details><summary>Casco</summary><div>Obbligatorio e incluso nel noleggio.</div></details>
+    <details><summary>Danni e furto</summary><div>Sei responsabile della bici fino alla riconsegna. Condizioni complete al ritiro.</div></details>
+    <p style="margin-top:20px"><a class="btn ghost" id="tourBtn" href="#" target="_blank" rel="noopener">Tour con guida in Puglia: chiedi info</a></p>
   </div>
 </section>
 </main>
 <script>
 layout('noleggio');
-$('#board').innerHTML=boardHTML(10);
+$('#board').innerHTML=boardHTML(7);
 let bike=FLEET[0];
 const iso=d=>d.toISOString().slice(0,10);
-const fleetEl=$('#fleet');
-function drawFleet(){fleetEl.innerHTML=FLEET.map(f=>{const n=nextFreeText(f.id);return `<button class="fbike" data-id="${f.id}" aria-pressed="${f===bike}">
-  <div class="pic ${f.cover?'cover':''}"><img src="${f.img}" alt="${f.name}" loading="lazy"></div>
-  <div class="b"><span class="pill ${f.kind==='e'?'e':''}">${f.kind==='e'?'Elettrica · ':''}${f.label}</span><h3>${f.name}</h3><p>${f.desc}</p>
-  <div class="row"><span class="next" style="color:${n.ok?'var(--ok)':'var(--warn)'};font-size:13px">● ${n.t}</span><span class="rate">€${f.rate}<small> /giorno${f.todo?' *':''}</small></span></div></div></button>`}).join('')}
-fleetEl.onclick=e=>{const b=e.target.closest('.fbike');if(!b)return;bike=FLEET.find(f=>f.id===b.dataset.id);drawFleet();setQty();calc();$('.planner').scrollIntoView({behavior:'smooth',block:'start'})};
-$('#extras').innerHTML=EXTRAS.map(x=>`<label class="extra"><input type="checkbox" value="${x.id}" ${x.id==='casco'?'checked':''}><img src="${x.img}" alt=""><span><b>${x.name}</b><small>${x.price?'€'+x.price+' al giorno':x.note}</small></span></label>`).join('');
-const d1=$('#d1'),d2=$('#d2');
-const t0=new Date();const t1=new Date();t1.setDate(t1.getDate()+2);
-d1.value=iso(t0);d2.value=iso(t1);d1.min=iso(t0);
+function drawList(){$('#list').innerHTML=FLEET.map(f=>{const n=nextFreeText(f.id);return `<button class="rbike" data-id="${f.id}" aria-pressed="${f===bike}"><img src="${f.img}" alt=""><div><b>${f.name}</b><span>${f.kind==='e'?'Elettrica · ':''}${f.label} · <span class="${n.ok?'ok':'wait'}">${n.t}</span></span></div><div class="r">€${f.rate}<small>al giorno</small></div></button>`}).join('')}
+$('#list').onclick=e=>{const b=e.target.closest('.rbike');if(!b)return;bike=FLEET.find(f=>f.id===b.dataset.id);drawList();setQty();calc()};
+$('#extras').innerHTML=EXTRAS.filter(x=>x.price).map(x=>`<label><input type="checkbox" value="${x.id}"><span>+ ${x.name} €${x.price}</span></label>`).join('');
+const d1=$('#d1'),d2=$('#d2');const t1=new Date();t1.setDate(t1.getDate()+2);
+d1.value=iso(new Date());d2.value=iso(t1);d1.min=iso(new Date());
 function setQty(){const s=$('#qty');const v=+s.value||1;s.innerHTML=Array.from({length:bike.units},(_,i)=>`<option ${i+1===Math.min(v,bike.units)?'selected':''}>${i+1}</option>`).join('')}
 function calc(){
-  const s=new Date(d1.value),e=new Date(d2.value);
-  if(e<s){d2.value=d1.value}
+  if(new Date(d2.value)<new Date(d1.value))d2.value=d1.value;
   let days=Math.round((new Date(d2.value)-new Date(d1.value))/864e5)+1;if(!(days>0))days=1;if(days>28)days=28;
   const q=+$('#qty').value||1;
   const off=Math.round((new Date(d1.value)-new Date(iso(new Date())))/864e5);
-  let minFree=bike.units;for(let d=off;d<off+days;d++)minFree=Math.min(minFree,freeOn(bike.id,d));
-  const av=$('#avail');
-  if(minFree>=q){av.textContent='✓ Disponibile per le date scelte';av.style.color='var(--ok)'}
-  else{av.textContent='✕ Non ci sono '+q+' '+bike.name+' libere per tutte queste date. Prova altre date o un\'altra bici.';av.style.color='var(--red)'}
+  let mf=bike.units;for(let d=off;d<off+days;d++)mf=Math.min(mf,freeOn(bike.id,d));
+  const ok=mf>=q,av=$('#avail');av.textContent=ok?'✓ Disponibile per queste date':'✕ Non disponibile: prova altre date o un\'altra bici';av.style.color=ok?'#6EE7A1':'#FF8A5C';
   const tr=$('#track');tr.innerHTML='';let base=0,free=0;
-  for(let i=1;i<=days;i++){const isF=i%7===0;const v=isF?0:(i<=3?bike.rate:bike.rate2);base+=v;if(isF)free++;tr.insertAdjacentHTML('beforeend',`<i class="${isF?'f':'p'}">${isF?'0':v}</i>`)}
+  for(let i=1;i<=days;i++){const f=i%7===0;const v=f?0:(i<=3?bike.rate:bike.rate2);base+=v;if(f)free++;tr.insertAdjacentHTML('beforeend',`<i class="${f?'f':'p'}">${f?'0':v}</i>`)}
   const ex=$$('#extras input:checked').map(i=>EXTRAS.find(x=>x.id===i.value));
-  const exTot=ex.reduce((a,x)=>a+x.price*(days-free),0)*q;
-  const tot=base*q+exTot;
-  $('#sumBike').textContent=`${q} × ${bike.name}, ${days} ${days===1?'giorno':'giorni'}${free?' ('+free+' gratis)':''}`;
-  $('#lines').innerHTML=`<div><span>Noleggio bici</span><span>€${base*q}</span></div>`+ex.map(x=>`<div><span>${x.name}</span><span>${x.price?'€'+x.price*(days-free)*q:'incluso'}</span></div>`).join('');
+  const tot=(base+ex.reduce((a,x)=>a+x.price*(days-free),0))*q;
+  $('#sumTxt').textContent=`${q} × ${bike.name}, ${days} ${days===1?'giorno':'giorni'}${free?' ('+free+' gratis)':''}`;
   $('#tot').textContent='€'+tot;
   const fmt=v=>v.split('-').reverse().join('/');
-  const msg=`Ciao Tazebike, vorrei prenotare ${q} ${bike.name} dal ${fmt(d1.value)} al ${fmt(d2.value)}, ritiro alle ${$('#time').value}.${ex.length?' Accessori: '+ex.map(x=>x.name).join(', ')+'.':''} Totale indicato sul sito: €${tot}.${$('#name').value?' Nome: '+$('#name').value+'.':''}`;
-  const bk=$('#book');bk.href=waLink(msg);bk.style.opacity=minFree>=q?'':'.5';bk.style.pointerEvents=minFree>=q?'':'none';
+  const b=$('#book');b.href=waLink(`Ciao Tazebike, vorrei noleggiare ${q} ${bike.name} dal ${fmt(d1.value)} al ${fmt(d2.value)}.${ex.length?' Con: '+ex.map(x=>x.name).join(', ')+'.':''} Totale sul sito: €${tot}.`);
+  b.style.opacity=ok?'':'.5';b.style.pointerEvents=ok?'':'none';
 }
-$('.planner').addEventListener('input',calc);$('.planner').addEventListener('change',calc);
+$('.planner2').addEventListener('input',calc);$('.planner2').addEventListener('change',calc);
 $('#tourBtn').href=waLink('Ciao Tazebike, vorrei informazioni sui tour in bici con guida.');
-drawFleet();setQty();calc();
+drawList();setQty();calc();
 </script>
 </body>
 </html>
