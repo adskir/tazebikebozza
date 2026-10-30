@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="img/logo-mark.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js"></script>
+<title>Prodotto · Tazebike Bari</title>
+</head>
+<body>
+<main class="wrap">
+  <p class="crumbs" id="crumbs"></p>
+  <div class="pdp" id="pdp"></div>
+  <section style="padding:0 0 80px">
+    <div class="sec-head"><div><h2 style="font-size:36px">Potrebbe piacerti anche</h2><span class="dash"></span></div></div>
+    <div class="grid" id="related"></div>
+  </section>
+</main>
+<script>
+layout('negozio');
+const p=product(new URLSearchParams(location.search).get('id'))||PRODUCTS[0];
+document.title=p.name+' · '+eur(p.price)+' · Tazebike Bari';
+const isBike=['bici','ebike','mono'].includes(p.cat);
+$('#crumbs').innerHTML=`<a href="index.html">Home</a> / <a href="negozio.html?cat=${p.cat}">${CATS[p.cat]}</a> / ${p.name}`;
+const gal=[p.img,...PRODUCTS.filter(x=>x.cat===p.cat&&x.id!==p.id).slice(0,2).map(x=>x.img)];
+$('#pdp').innerHTML=`
+<div class="gallery">
+  <div class="main ${p.contain?'contain':''}"><img id="mainImg" src="${p.img}" alt="${p.name}"></div>
+  <div class="thumbs" role="group" aria-label="Foto">${gal.map((g,i)=>`<button data-src="${g}" aria-pressed="${i===0}" aria-label="Foto ${i+1}"><img src="${g}" alt=""></button>`).join('')}</div>
+  <p class="sub" style="font-size:13px;margin-top:8px"><span class="todo">Nel sito finale: 4–6 foto vere per ogni prodotto.</span></p>
+</div>
+<div>
+  <span class="brand">${p.brand} · ${p.sub}${p.cond==='usato'?' · Usato':''}</span>
+  <h1>${p.name}</h1>
+  <div class="price">${eur(p.price)}</div>
+  <p class="klarna" style="margin-top:6px">Oppure <b>3 rate da ${rate3(p.price)}</b> con Klarna, senza interessi${isBike&&p.price>500?' · o finanziamento Compass in negozio':''}</p>
+  <div class="stock-line ${p.stock}"><i></i>${p.stock==='in'?'Disponibile in negozio a Bari':'Su ordinazione: arriva in 5–10 giorni'}</div>
+  <p style="margin-top:16px">${p.desc}</p>
+  ${p.sizes.length>1?`<div class="opt"><span>${p.cat==='acc'?'Taglia':'Taglia telaio'}</span><div class="chips" id="sizes">${p.sizes.map((s,i)=>`<button class="chip" aria-pressed="${i===0}">${s}</button>`).join('')}</div>${isBike?'<p class="sub" style="font-size:14px;margin-top:8px">Non sai la tua taglia? Vieni a provarla o scrivici la tua altezza.</p>':''}</div>`:''}
+  <div class="opt"><span>Quantità</span><div class="qty"><button id="qm" aria-label="Meno">−</button><output id="qv">1</output><button id="qp" aria-label="Più">+</button></div></div>
+  <div class="buy">
+    <button class="btn" id="addBtn">Aggiungi al carrello</button>
+    ${isBike?`<a class="btn wa" href="${waLink('Ciao Tazebike, vorrei provare la '+p.name+'. Quando posso passare?')}" target="_blank" rel="noopener">${ICON.wa} Prenota una prova</a>`:''}
+  </div>
+  <ul class="perks">
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10l9-6 9 6v10H3z"/><path d="M9 20v-6h6v6"/></svg><div><b>Ritiro in negozio, gratis</b><span>Via Galvani 6/N, Bari. ${isBike?'Te la consegniamo regolata e pronta.':'Pronto in giornata.'}</span></div></li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="13" height="10"/><path d="M15 10h4l3 3v4h-7"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg><div><b>${isBike?'Consegna a casa a Bari e provincia, o corriere in Italia':'Spedizione in tutta Italia'}</b><span>${isBike?'Consegna montata a Bari. In Italia con corriere specializzato'+(p.cat==='ebike'?' per e-bike con batteria':'')+'.':'In 2–4 giorni lavorativi.'}</span></div></li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M8 12l3 3 5-6"/></svg><div><b>Paghi solo se è disponibile</b><span>Blocchiamo l'importo sulla carta e lo addebitiamo solo dopo aver confermato il prodotto.</span></div></li>
+    ${isBike?'<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg><div><b>Primo tagliando gratuito</b><span>Dopo un mese ricontrolliamo freni e cambio. <span class="todo">da confermare</span></span></div></li>':''}
+  </ul>
+  <details open><summary>Caratteristiche</summary><div><table class="specs">${Object.entries(p.specs).map(([k,v])=>`<tr><th>${k}</th><td>${v}</td></tr>`).join('')}<tr><th>Marca</th><td>${p.brand}</td></tr></table></div></details>
+  <details><summary>Spedizione e resi</summary><div>Ritiro in negozio gratuito. Spedizione accessori in Italia € 9,90 (gratis sopra € 79). Bici: consegna a Bari e provincia € 29, resto d'Italia con corriere da € 59. Reso entro 14 giorni dalla consegna. <span class="todo">condizioni da definire con Tazebike</span></div></details>
+  <details><summary>Pagamento</summary><div>Carta di credito o debito, PayPal, Apple Pay, Google Pay, Klarna in 3 rate senza interessi. In negozio anche finanziamenti Compass e Santander Consumer Bank.</div></details>
+</div>`;
+let q=1,size=p.sizes[0];
+$('#qm').onclick=()=>{q=Math.max(1,q-1);$('#qv').textContent=q};
+$('#qp').onclick=()=>{q=Math.min(5,q+1);$('#qv').textContent=q};
+const sz=$('#sizes');if(sz)sz.onclick=e=>{const b=e.target.closest('.chip');if(!b)return;size=b.textContent;$$('.chip',sz).forEach(x=>x.setAttribute('aria-pressed',x===b))};
+$$('.thumbs button').forEach(b=>b.onclick=()=>{$('#mainImg').src=b.dataset.src;$$('.thumbs button').forEach(x=>x.setAttribute('aria-pressed',x===b))});
+$('#addBtn').onclick=()=>{Cart.add(p.id,size,q);toast(p.name+' aggiunto al carrello');openCart()};
+$('#related').innerHTML=PRODUCTS.filter(x=>x.id!==p.id&&(x.cat===p.cat||x.cat==='acc')).slice(0,4).map(cardHTML).join('');
+</script>
+</body>
+</html>

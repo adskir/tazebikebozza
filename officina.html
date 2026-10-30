@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="img/logo-mark.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js"></script>
+<title>Officina e riparazione bici a Bari · Tazebike</title>
+<meta name="description" content="Riparazione di bici, e-bike e monopattini a Bari con ricambi originali. Ritiro e consegna a domicilio, personalizzazioni e restauro di bici d'epoca.">
+</head>
+<body>
+<main>
+<section class="slant-dark" style="padding:40px 0 70px">
+  <div class="wrap two">
+    <div>
+      <p class="crumbs" style="color:#A9B4B1;padding:0 0 14px"><a href="index.html">Home</a> / Officina e restauro</p>
+      <p class="hand" style="font-size:46px;line-height:1;color:var(--leaf)">Tutto si ripara!</p>
+      <h1 style="font-size:clamp(44px,6.4vw,78px);margin-top:6px">Officina per bici, e-bike e monopattini</h1>
+      <p class="sub" style="font-size:18px;margin-top:16px">Non chiederti, non chiederci se lo ripariamo: la risposta sarà, quasi sempre, sì. Bici da strada, mountain bike, vintage ed e-bike, per amatori e professionisti.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px"><a class="btn" href="#prenota">Prenota una riparazione</a><a class="btn ghost" href="#ritiro">Ritiro a domicilio</a></div>
+    </div>
+    <div class="round" style="max-width:440px;justify-self:center"><img src="img/catena-cuore.jpg" alt="Cuore fatto con una catena di bici e una corona, in officina Tazebike"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap two" style="align-items:start">
+    <div>
+      <h2>Listino officina</h2><span class="dash"></span>
+      <p class="sub" style="margin:14px 0 20px">Prezzi chiari prima di iniziare. Per lavori più complessi ti mandiamo un preventivo su WhatsApp.</p>
+      <ul class="svc-list">
+        <li><span>Tagliando completo bici</span><span>da € — <span class="todo">prezzo</span></span></li>
+        <li><span>Regolazione freni e cambio</span><span>da € —</span></li>
+        <li><span>Riparazione foratura</span><span>da € —</span></li>
+        <li><span>Sostituzione catena e cassetta</span><span>da € —</span></li>
+        <li><span>Spurgo freni idraulici</span><span>da € —</span></li>
+        <li><span>Controllo e-bike e batteria</span><span>da € —</span></li>
+        <li><span>Riparazione monopattini elettrici</span><span>da € —</span></li>
+        <li><span>Montaggio accessori acquistati da noi</span><span>gratis</span></li>
+      </ul>
+      <p class="sub" style="font-size:14px;margin-top:10px">I prezzi li mettete voi: si aggiornano da soli su tutto il sito.</p>
+    </div>
+    <div class="panel" id="prenota">
+      <h2 style="font-size:30px">Prenota una riparazione</h2>
+      <p class="sub" style="margin:6px 0 16px">Scegli cosa ti serve: ti rispondiamo su WhatsApp con giorno e orario.</p>
+      <div class="fields">
+        <label class="field full">Che mezzo è?<select id="mezzo"><option>Bici da strada</option><option>Gravel</option><option>Mountain bike</option><option>City bike</option><option>E-bike</option><option>Monopattino elettrico</option><option>Bici d'epoca</option></select></label>
+        <label class="field full">Cosa non va?<select id="prob"><option>Tagliando completo</option><option>Freni</option><option>Cambio</option><option>Foratura</option><option>Ruota o raggi</option><option>Batteria o motore e-bike</option><option>Altro</option></select></label>
+        <label class="field">Quando vuoi portarla?<input type="date" id="quando"></label>
+        <label class="field">Nome<input type="text" id="nome" autocomplete="name"></label>
+        <label class="field full" style="flex-direction:row;display:flex;align-items:center;gap:10px;color:#1A1A1A"><input type="checkbox" id="ritiroCk" style="width:18px;height:18px;accent-color:var(--teal)"> Voglio il ritiro e la consegna a domicilio</label>
+        <label class="field full">Note (facoltativo)<textarea id="note" rows="2" placeholder="Es. rumore dalla ruota posteriore"></textarea></label>
+      </div>
+      <a class="btn wa" style="width:100%;margin-top:16px" id="repBtn" href="#" target="_blank" rel="noopener">Invia la richiesta su WhatsApp</a>
+      <p class="sub" style="font-size:13px;margin-top:8px">Puoi allegare una foto o un video del problema direttamente nella chat.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slant-teal" id="ritiro">
+  <div class="wrap two">
+    <div>
+      <h2>Ritiro e consegna a domicilio</h2><span class="dash" style="background:#fff"></span>
+      <p class="sub" style="margin-top:14px;font-size:17px">Non hai tempo o un modo per portarci la bici? Veniamo noi a prenderla e te la riportiamo riparata.</p>
+      <ul style="margin:18px 0 0 18px;display:grid;gap:6px">
+        <li>Su appuntamento, durante l'orario del negozio</li>
+        <li>Contributo spese in base alla distanza</li>
+        <li>Bari e dintorni</li>
+      </ul>
+      <a class="btn" style="background:#fff;color:var(--teal-dark);border-color:#fff;margin-top:22px" href="#prenota">Prenota il ritiro</a>
+    </div>
+    <div>
+      <h2 style="font-size:34px">Ricambi originali</h2><span class="dash" style="background:#fff"></span>
+      <p class="sub" style="margin-top:14px">Pezzi originali per city bike, MTB, bici da corsa ed elettriche: ruote, catene, cassette, pastiglie dei freni e ogni meccanismo che rende la tua bici efficiente.</p>
+      <div class="round" style="margin-top:20px;max-width:340px"><img src="img/mozzi.jpg" alt="Mozzi e ricambi originali"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap two">
+    <div class="ba" style="width:100%">
+      <img src="img/restauro-prima.jpg" alt="Bici d'epoca prima del restauro">
+      <img class="after" src="img/restauro-dopo.jpg" alt="La stessa bici dopo il restauro">
+      <div class="handle"></div>
+      <input type="range" min="0" max="100" value="50" aria-label="Confronta prima e dopo il restauro">
+    </div>
+    <div>
+      <h2>Restauro e personalizzazione</h2><span class="dash"></span>
+      <p class="quote" style="margin-top:20px">Non lasciare la tua vecchia bici in soffitta: portala da noi, le daremo una seconda vita.</p>
+      <p class="sub" style="margin-top:18px">Rispettiamo l'originalità della bici e cerchiamo con cura i pezzi di ricambio. E se vuoi una bici fatta apposta per te, la progettiamo insieme: componenti, colori, assetto.</p>
+      <a class="btn wa" style="margin-top:20px" href="#" id="restBtn" target="_blank" rel="noopener">Mandaci una foto della tua bici</a>
+    </div>
+  </div>
+</section>
+</main>
+<script>
+layout('officina');
+const q=$('#quando');const t=new Date();t.setDate(t.getDate()+1);q.value=t.toISOString().slice(0,10);q.min=new Date().toISOString().slice(0,10);
+function rep(){
+  const d=q.value.split('-').reverse().join('/');
+  const m=`Ciao Tazebike, vorrei prenotare una riparazione. Mezzo: ${$('#mezzo').value}. Problema: ${$('#prob').value}. Vorrei portarla il ${d}.${$('#ritiroCk').checked?' Mi serve il ritiro e la consegna a domicilio.':''}${$('#note').value?' Note: '+$('#note').value:''}${$('#nome').value?' Nome: '+$('#nome').value:''}`;
+  $('#repBtn').href=waLink(m);
+}
+$('#prenota').addEventListener('input',rep);$('#prenota').addEventListener('change',rep);rep();
+$('#restBtn').href=waLink('Ciao Tazebike, ho una bici da restaurare/personalizzare. Vi mando qualche foto.');
+initBA();
+</script>
+</body>
+</html>

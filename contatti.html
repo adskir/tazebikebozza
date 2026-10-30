@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="img/logo-mark.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js"></script>
+<title>Contatti e orari · Tazebike Ciclofficina Bari</title>
+<meta name="description" content="Tazebike Ciclofficina, Via Galvani 6/N, Bari. Orari, telefono, WhatsApp, mappa e recensioni.">
+</head>
+<body>
+<main>
+<section style="padding:30px 0 60px">
+  <div class="wrap">
+    <p class="crumbs" style="padding:0 0 14px"><a href="index.html">Home</a> / Contatti</p>
+    <h1 style="font-size:clamp(40px,6vw,72px)">Negozio e officina<br>per il ciclismo a Bari</h1>
+    <p class="sub" style="font-size:17px;margin-top:14px">Rivenditore autorizzato in esclusiva per Bari di Bergamont, NCM e SMP. Ti aiutiamo a scegliere bici, e-bike e accessori, e ripariamo bici e monopattini.</p>
+    <div class="contact" style="margin-top:30px">
+      <div class="info">
+        <div><dt>Dove siamo</dt><dd>Via Galvani Luigi 6/N, 70125 Bari (BA)</dd><a class="btn small" style="background:#fff;color:var(--teal-dark);border-color:#fff;margin-top:10px" href="https://www.google.com/maps/dir/?api=1&destination=Tazebike+Via+Luigi+Galvani+6+Bari" target="_blank" rel="noopener">Come raggiungerci</a></div>
+        <div><dt>Telefono e WhatsApp</dt><dd><a href="tel:+393287392980">+39 328 739 2980</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:tazebikeciclofficina@gmail.com">tazebikeciclofficina@gmail.com</a></dd></div>
+        <div><dt>Orari</dt><dd class="hours"><span>Lun–Ven</span><span>9:00–13:00 · 16:00–20:00</span><span>Sabato</span><span>9:00–13:00</span><span>Domenica</span><span>chiuso</span></dd>
+          <p style="font-size:13px;color:#CFE5DF;margin-top:6px" id="openTxt"></p><p style="font-size:12px;margin-top:4px"><span class="todo">sul sito attuale 9–20 senza pausa, su Google pausa 13–16: verificare</span></p></div>
+        <div><dt>Social</dt><dd><a href="https://www.instagram.com/tazebikeofficial/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/tazebike/" target="_blank" rel="noopener">Facebook</a></dd></div>
+      </div>
+      <iframe title="Mappa Tazebike, Via Galvani 6/N, Bari" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Tazebike+Ciclofficina,+Via+Luigi+Galvani+6,+Bari&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div><h2>Recensioni</h2><span class="dash"></span></div></div>
+    <div id="reviews"></div>
+  </div>
+</section>
+</main>
+<script>
+layout('contatti');
+$('#reviews').innerHTML=reviewsHTML();
+$('#openTxt').textContent=openState().txt;
+</script>
+</body>
+</html>

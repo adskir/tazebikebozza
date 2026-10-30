@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="img/logo-mark.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js"></script>
+<title>Cassa · Tazebike</title>
+</head>
+<body>
+<main class="wrap">
+  <p class="crumbs"><a href="index.html">Home</a> / <a href="negozio.html">Negozio</a> / Cassa</p>
+  <div class="co">
+    <div>
+      <h1>Cassa</h1>
+      <p class="sub">Pagamento sicuro con Stripe. Addebitiamo l'importo solo dopo aver confermato che il prodotto è disponibile.</p>
+      <div class="step">
+        <h2><i>1</i>Consegna</h2>
+        <div id="ship"></div>
+      </div>
+      <div class="step">
+        <h2><i>2</i>I tuoi dati</h2>
+        <div class="fields">
+          <label class="field">Nome e cognome<input type="text" autocomplete="name"></label>
+          <label class="field">Telefono<input type="tel" autocomplete="tel"></label>
+          <label class="field full">Email<input type="email" autocomplete="email"></label>
+          <label class="field full" id="addrF">Indirizzo di consegna<input type="text" autocomplete="street-address" placeholder="Via, numero, CAP, città"></label>
+        </div>
+      </div>
+      <div class="step">
+        <h2><i>3</i>Pagamento</h2>
+        <label class="choice"><input type="radio" name="pay" value="card" checked><div><b>Carta di credito o debito</b><small>Visa, Mastercard, American Express</small></div></label>
+        <label class="choice"><input type="radio" name="pay" value="klarna"><div><b>Klarna in 3 rate</b><small id="k3"></small></div></label>
+        <label class="choice"><input type="radio" name="pay" value="paypal"><div><b>PayPal</b><small>Paghi con il tuo conto PayPal</small></div></label>
+        <label class="choice"><input type="radio" name="pay" value="wallet"><div><b>Apple Pay o Google Pay</b><small>Dal telefono, in un tocco</small></div></label>
+        <p class="sub" style="font-size:13px;margin-top:10px">I dati della carta si inseriscono sulla pagina sicura di Stripe: il sito non li vede mai.</p>
+      </div>
+    </div>
+    <aside class="co-sum">
+      <h2 style="font-size:26px;margin-bottom:10px">Il tuo ordine</h2>
+      <div id="coItems"></div>
+      <div style="border-top:1px solid var(--line);margin-top:10px;padding-top:10px;display:grid;gap:4px">
+        <div class="row2"><span>Prodotti</span><span id="sub"></span></div>
+        <div class="row2"><span>Consegna</span><span id="shipCost"></span></div>
+        <div class="row2 t"><span>Totale</span><span id="tot"></span></div>
+      </div>
+      <button class="btn" style="width:100%;margin-top:14px" id="pay">Paga in modo sicuro</button>
+      <div class="methods"><span>VISA</span><span>Mastercard</span><span>PayPal</span><span>Klarna</span><span>Apple Pay</span></div>
+    </aside>
+  </div>
+</main>
+<dialog id="dlg">
+  <h3>Questa è una demo</h3>
+  <p>Nel sito vero qui si apre la pagina di pagamento Stripe con il metodo scelto. Tazebike riceve una notifica, conferma la disponibilità e solo allora l'importo viene addebitato.</p>
+  <form method="dialog"><button class="btn" style="width:100%">Ho capito</button></form>
+</dialog>
+<script>
+layout('negozio');
+const bike=Cart.hasBike(),sub=Cart.total();
+const opts=[
+  {v:0,t:'Ritiro in negozio',s:'Via Galvani 6/N, Bari · pronto in giornata',addr:false},
+  ...(bike?[{v:29,t:'Consegna a casa, Bari e provincia',s:'Bici montata e regolata, in 2–3 giorni',addr:true},{v:59,t:'Corriere in tutta Italia',s:'Bici in imballo, 4–6 giorni lavorativi · corriere specializzato per e-bike',addr:true}]
+         :[{v:sub>=79?0:9.9,t:'Spedizione in Italia',s:'2–4 giorni lavorativi'+(sub>=79?' · gratis sopra € 79':''),addr:true}])
+];
+$('#ship').innerHTML=opts.map((o,i)=>`<label class="choice"><input type="radio" name="ship" value="${i}" ${i===0?'checked':''}><div><b>${o.t}</b><small>${o.s}</small></div><span class="p">${o.v?eur(o.v):'Gratis'}</span></label>`).join('')+'<p class="sub" style="font-size:13px;margin-top:8px"><span class="todo">tariffe e corrieri da definire con Tazebike</span></p>';
+$('#coItems').innerHTML=Cart.get().map(x=>{const p=product(x.id);return `<div class="it"><img src="${p.img}" alt=""><div class="t"><b>${p.name}</b>${x.size!=='Unica'?'Taglia '+x.size+' · ':''}Qtà ${x.qty}</div><span style="font-weight:600">${eur(p.price*x.qty)}</span></div>`}).join('')||'<p class="empty">Il carrello è vuoto. <a href="negozio.html">Vai al negozio</a></p>';
+function upd(){const o=opts[+$('[name=ship]:checked').value];const tot=sub+o.v;
+  $('#sub').textContent=eur(sub);$('#shipCost').textContent=o.v?eur(o.v):'Gratis';$('#tot').textContent=eur(tot);
+  $('#k3').textContent='3 rate da '+rate3(tot)+', senza interessi';$('#addrF').style.display=o.addr?'':'none'}
+document.addEventListener('change',upd);upd();
+$('#pay').onclick=()=>$('#dlg').showModal();
+</script>
+</body>
+</html>

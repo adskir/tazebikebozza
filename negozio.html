@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="img/logo-mark.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js"></script>
+<title>Negozio · Bici, e-bike e accessori a Bari · Tazebike</title>
+<meta name="description" content="Compra online bici, e-bike, monopattini e accessori Tazebike. Ritiro in negozio a Bari o spedizione in tutta Italia, paga anche in 3 rate con Klarna.">
+</head>
+<body>
+<main class="wrap">
+  <p class="crumbs"><a href="index.html">Home</a> / Negozio</p>
+  <div class="sec-head" style="margin:16px 0 0"><div><h1 style="font-size:clamp(40px,5vw,60px)">Negozio</h1><span class="dash"></span></div>
+    <div class="chips" role="group" aria-label="Categoria" id="catChips"></div></div>
+  <div class="shop">
+    <aside class="filters" id="filters" aria-label="Filtri">
+      <fieldset><legend>Tipo</legend><div id="subs"></div></fieldset>
+      <fieldset><legend>Condizione</legend>
+        <label><input type="checkbox" name="cond" value="nuovo" checked> Nuovo</label>
+        <label><input type="checkbox" name="cond" value="usato" checked> Usato e restaurato</label></fieldset>
+      <fieldset><legend>Disponibilità</legend>
+        <label><input type="radio" name="stock" value="all" checked> Tutti</label>
+        <label><input type="radio" name="stock" value="in"> Solo disponibili in negozio</label></fieldset>
+      <fieldset><legend>Prezzo massimo: <span id="maxOut"></span></legend><input type="range" id="max" min="20" max="3300" step="10" value="3300" aria-label="Prezzo massimo"></fieldset>
+      <fieldset><legend>Marca</legend><div id="brands"></div></fieldset>
+    </aside>
+    <div>
+      <div class="toolbar">
+        <span id="resCount" class="sub"></span>
+        <div style="display:flex;gap:10px;align-items:center">
+          <button class="btn ghost small show-filters" id="showF" aria-expanded="false">Filtri</button>
+          <label class="sr" for="sort">Ordina</label>
+          <select id="sort"><option value="rel">In evidenza</option><option value="asc">Prezzo crescente</option><option value="desc">Prezzo decrescente</option></select>
+        </div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </div>
+</main>
+<script>
+layout('negozio');
+const qs=new URLSearchParams(location.search);
+let cat=qs.get('cat')||'all';
+const chips=$('#catChips');
+chips.innerHTML=[['all','Tutto'],...Object.entries(CATS)].map(([k,v])=>`<button class="chip" data-c="${k}" aria-pressed="${k===cat}">${k==='acc'?'Accessori':v}</button>`).join('');
+chips.onclick=e=>{const b=e.target.closest('.chip');if(!b)return;cat=b.dataset.c;$$('.chip',chips).forEach(x=>x.setAttribute('aria-pressed',x===b));buildFacets();draw();history.replaceState(null,'',cat==='all'?'negozio.html':'negozio.html?cat='+cat)};
+function pool(){return PRODUCTS.filter(p=>cat==='all'||p.cat===cat)}
+function buildFacets(){
+  const subs=[...new Set(pool().map(p=>p.sub))],brands=[...new Set(pool().map(p=>p.brand))];
+  $('#subs').innerHTML=subs.map(s=>`<label><input type="checkbox" name="sub" value="${s}" checked> ${s}</label>`).join('');
+  $('#brands').innerHTML=brands.map(s=>`<label><input type="checkbox" name="brand" value="${s}" checked> ${s}</label>`).join('');
+}
+function draw(){
+  const on=n=>$$(`[name=${n}]:checked`).map(i=>i.value);
+  const max=+$('#max').value;$('#maxOut').textContent=eur(max);
+  const stock=$('[name=stock]:checked').value;
+  let r=pool().filter(p=>on('sub').includes(p.sub)&&on('brand').includes(p.brand)&&on('cond').includes(p.cond)&&p.price<=max&&(stock==='all'||p.stock==='in'));
+  const s=$('#sort').value;if(s==='asc')r.sort((a,b)=>a.price-b.price);if(s==='desc')r.sort((a,b)=>b.price-a.price);
+  $('#resCount').textContent=r.length+(r.length===1?' prodotto':' prodotti');
+  $('#grid').innerHTML=r.length?r.map(cardHTML).join(''):'<p class="empty">Nessun prodotto con questi filtri. Prova ad allargare la ricerca, oppure <a href="'+waLink('Ciao Tazebike, cerco ')+'">chiedici su WhatsApp</a>.</p>';
+}
+$('#filters').addEventListener('input',draw);$('#sort').onchange=draw;
+$('#showF').onclick=()=>{const f=$('#filters');f.classList.toggle('show');$('#showF').setAttribute('aria-expanded',f.classList.contains('show'))};
+buildFacets();draw();
+</script>
+</body>
+</html>

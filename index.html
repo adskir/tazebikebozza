@@ -3,493 +3,110 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tazebike · Bici, e-bike, noleggio e officina a Bari</title>
-<meta name="description" content="Tazebike, Bari: vendita di bici ed e-bike Basso, Bergamont, Tenways, noleggio bici e riparazioni. Ordina online, paga anche in 3 rate.">
 <meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="img/logo-mark.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --asphalt:#000000;
-  --asphalt-2:#1E1F1F;
-  --signal:#3B7A6C;
-  --signal-dark:#2C5F54;
-  --leaf:#6DB3A0;
-  --red:#CC3F4E;
-  --paper:#FFFFFF;
-  --mist:#EEF0F2;
-  --grey:#69707A;
-  --line:#DADDE1;
-  --ok:#1E9E5A;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:"Poppins",system-ui,sans-serif;font-size:16px;color:#1A1A1A;background:var(--paper);line-height:1.55;font-size:17px}
-a{color:inherit}
-img{max-width:100%;display:block}
-button{font:inherit;cursor:pointer}
-:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
-.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
-.display{font-family:"Jost",sans-serif;font-weight:700;line-height:.95;letter-spacing:-.01em}
-.todo{background:#FFF1B8;color:#4A3B00;padding:0 5px;border-radius:3px;font-size:.85em;font-weight:500}
-
-.draft{background:#FFF1B8;color:#4A3B00;font-size:14px;text-align:center;padding:8px 16px}
-
-/* header */
-.top{position:sticky;top:0;z-index:20;background:#000;color:#fff;border-top:6px solid var(--red)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:78px}
-.logo{display:flex;align-items:center;gap:12px;text-decoration:none;line-height:1}
-.logo img{height:52px;width:auto}
-.logo b{display:block;font-family:"Jost";font-weight:700;font-size:28px;letter-spacing:.02em}
-.logo small{display:block;font-family:"Jost";font-weight:400;font-size:22px;color:var(--leaf);margin-top:-2px}
-nav{display:flex;gap:24px;font-weight:600;font-size:16px}
-nav a{text-decoration:none}
-nav a:hover{color:var(--leaf)}
-.cart-btn{position:relative;background:var(--signal);color:#fff;border:0;border-radius:999px;padding:9px 16px;font-weight:700;display:flex;gap:8px;align-items:center}
-.cart-btn svg{width:20px;height:20px}
-.badge{background:var(--red);color:#fff;border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:13px;padding:0 6px}
-
-/* hero */
-.hero{background:#141515;color:#fff;overflow:hidden;position:relative;border-bottom:10px solid #141515}
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:6px;background:repeating-linear-gradient(90deg,#fff 0 34px,transparent 34px 56px)}
-.hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:30px;min-height:520px;padding-top:40px;padding-bottom:40px}
-.kicker{color:var(--leaf);font-weight:700;font-size:16px;margin-bottom:14px}
-.hero h1{font-size:clamp(58px,9vw,124px)}
-.hero h1 em{font-style:normal;color:var(--leaf)}
-.hero p{max-width:44ch;margin-top:18px;font-size:19px;color:#D3D7DD}
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--signal);color:#fff;text-decoration:none;font-weight:700;padding:14px 22px;border-radius:8px;border:0}
-.btn:hover{background:var(--signal-dark)}
-.btn.line{background:transparent;border:2px solid currentColor}
-.btn.line:hover{background:rgba(255,255,255,.08)}
-.btn.dark{background:var(--asphalt)}
-.hero-pic{position:relative;display:grid;place-items:center}
-.hero-pic::before{content:"";position:absolute;width:88%;aspect-ratio:1;border-radius:50%;border:2px dashed #4A515B}
-.hero-pic img{position:relative;width:100%;max-width:560px;filter:drop-shadow(0 30px 30px rgba(0,0,0,.45))}
-.speed{display:flex;gap:28px;margin-top:34px;flex-wrap:wrap}
-.speed div{border-left:3px solid var(--leaf);padding-left:12px}
-.speed b{font-family:"Jost";font-size:28px;font-weight:700;display:block;line-height:1}
-.speed span{font-size:14px;color:#AEB4BC}
-
-/* categories */
-.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-bottom:1px solid var(--line)}
-.cat{display:flex;align-items:center;gap:14px;padding:22px 20px;text-decoration:none;border-right:1px solid var(--line);font-weight:700;font-size:19px}
-.cat:last-child{border-right:0}
-.cat img{width:54px;height:40px;object-fit:contain}
-.cat:hover{background:var(--mist)}
-
-section{padding:76px 0}
-.head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
-h2{font-size:clamp(42px,6vw,72px)}
-.sub{color:var(--grey);max-width:52ch;margin-top:8px}
-
-/* shop */
-.filters{display:flex;gap:8px;flex-wrap:wrap}
-.filters button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;font-weight:600}
-.filters button[aria-pressed="true"]{background:var(--asphalt);border-color:var(--asphalt);color:#fff}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
-.card{border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;background:#fff}
-.card .pic{background:var(--mist);aspect-ratio:4/3;display:grid;place-items:center;padding:18px;position:relative}
-.card .pic img{max-height:100%;object-fit:contain;mix-blend-mode:multiply}
-.stock{position:absolute;top:10px;left:10px;font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px;background:#fff}
-.stock.in{color:var(--ok)}
-.stock.order{color:#A15C00}
-.card .body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
-.brand{font-size:13px;color:var(--grey);font-weight:600}
-.card h3{font-size:19px;line-height:1.2}
-.price{font-family:"Jost";font-size:32px;font-weight:800;line-height:1;margin-top:auto;padding-top:8px}
-.klarna{font-size:14px;color:var(--grey)}
-.klarna b{color:var(--asphalt)}
-.add{margin-top:10px;width:100%;background:var(--asphalt);color:#fff;border:0;border-radius:8px;padding:12px;font-weight:700}
-.add:hover{background:var(--signal)}
-.add.done{background:var(--ok)}
-
-.pay{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:34px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.pay div{padding:18px;border-right:1px solid var(--line)}
-.pay div:last-child{border-right:0}
-.pay b{display:block;font-size:17px;margin-bottom:2px}
-.pay span{font-size:14px;color:var(--grey)}
-
-/* rental */
-.rent{background:#EAF2EF}
-.rent-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;align-items:start}
-.fleet{display:grid;gap:12px}
-.bike{display:flex;gap:16px;align-items:center;background:#fff;border-radius:12px;padding:12px;border:2px solid transparent;cursor:pointer;text-align:left;width:100%}
-.bike img{width:110px;height:80px;object-fit:contain;background:var(--mist);border-radius:8px}
-.bike b{display:block;font-size:19px}
-.bike span{font-size:15px;color:var(--grey)}
-.bike[aria-pressed="true"]{border-color:var(--signal)}
-.rate{margin-left:auto;text-align:right;font-family:"Jost";font-size:26px;font-weight:800;line-height:1;white-space:nowrap}
-.rate small{display:block;font-family:"Poppins";font-size:13px;font-weight:500;color:var(--grey)}
-.planner{background:var(--asphalt);color:#fff;border-radius:16px;padding:26px}
-.planner h3{font-family:"Jost";font-size:32px;margin-bottom:16px}
-.dates{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.dates label{font-size:14px;color:#AEB4BC}
-.dates input,.qty select{width:100%;margin-top:6px;font:inherit;padding:11px 12px;border-radius:8px;border:0}
-.qty{margin-top:12px}
-.qty label{font-size:14px;color:#AEB4BC}
-.track{display:flex;gap:4px;margin:20px 0 8px;flex-wrap:wrap}
-.track i{flex:1 0 22px;height:30px;border-radius:5px;background:var(--asphalt-2);display:grid;place-items:center;font-style:normal;font-size:12px;color:#AEB4BC}
-.track i.paid{background:var(--leaf);color:#000;color:#fff}
-.track i.free{background:var(--ok);color:#fff}
-.legend{display:flex;gap:16px;font-size:13px;color:#AEB4BC;margin-bottom:18px}
-.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle;background:var(--leaf)}
-.legend span.f::before{background:var(--ok)}
-.total{display:flex;justify-content:space-between;align-items:end;border-top:1px solid #3E444D;padding-top:16px;margin-bottom:18px}
-.total b{font-family:"Jost";font-size:52px;line-height:1}
-.total span{color:#AEB4BC;font-size:15px}
-.planner .btn{width:100%}
-.note{font-size:13px;color:#AEB4BC;margin-top:10px}
-
-/* workshop */
-.shop2{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center}
-.quote{font-family:"Jost";font-weight:600;font-size:clamp(30px,3.8vw,46px);line-height:1.05;border-left:6px solid var(--signal);padding-left:22px}
-.services{list-style:none;margin-top:24px;display:grid;gap:0;border-top:1px solid var(--line)}
-.services li{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
-.services li span:last-child{font-weight:700;white-space:nowrap}
-
-.brands{display:flex;flex-wrap:wrap;gap:10px 30px;font-family:"Jost";font-weight:700;font-size:28px;color:#9AA0A8;margin-top:10px;letter-spacing:.02em}
-.brands span:hover{color:var(--asphalt)}
-
-.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.rv{border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:12px}
-.rv p{font-size:16px}
-.rv .who{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--grey);margin-top:auto}
-.rv .who b{color:#1A1A1A;font-size:15px}
-.rv .st{color:#F4B400;letter-spacing:2px}
-.g-link{display:inline-block;margin-top:18px;font-weight:600;color:var(--signal)}
-
-.contact{display:grid;grid-template-columns:1fr 1.3fr;border-radius:16px;overflow:hidden;background:var(--signal);color:#fff}
-.contact .info{padding:36px;display:grid;gap:18px;align-content:start}
-.contact dt{font-size:14px;color:#CFE5DF}
-.contact dd{font-size:18px}
-.contact iframe{width:100%;height:100%;min-height:360px;border:0;display:block}
-footer{padding:34px 0 50px;font-size:14px;color:var(--grey);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-
-/* cart drawer */
-.drawer{position:fixed;inset:0 0 0 auto;width:min(420px,100%);background:#fff;z-index:40;transform:translateX(100%);transition:transform .3s ease;display:flex;flex-direction:column;box-shadow:-20px 0 40px rgba(0,0,0,.2)}
-.drawer.open{transform:none}
-.scrim{position:fixed;inset:0;background:rgba(34,38,44,.5);z-index:30;opacity:0;pointer-events:none;transition:opacity .3s}
-.scrim.open{opacity:1;pointer-events:auto}
-.drawer header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
-.drawer h3{font-family:"Jost";font-size:30px}
-.x{border:0;background:var(--mist);width:38px;height:38px;border-radius:50%;font-size:20px}
-.items{flex:1;overflow:auto;padding:10px 20px}
-.it{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
-.it img{width:64px;height:48px;object-fit:contain;background:var(--mist);border-radius:6px}
-.it div{flex:1;font-size:15px}
-.it b{display:block}
-.it button{border:0;background:none;color:var(--grey);text-decoration:underline;font-size:14px}
-.empty{color:var(--grey);padding:30px 0;text-align:center}
-.ship{padding:14px 20px;border-top:1px solid var(--line);display:grid;gap:8px;font-size:15px}
-.ship label{display:flex;justify-content:space-between;gap:10px;align-items:center;cursor:pointer}
-.ship label span:first-of-type{flex:1}
-.sum{padding:16px 20px;border-top:1px solid var(--line)}
-.sum .row{display:flex;justify-content:space-between;font-size:15px;color:var(--grey)}
-.sum .row.t{font-size:22px;color:var(--asphalt);font-weight:700;margin-top:6px}
-.sum .k{font-size:14px;color:var(--grey);margin:6px 0 14px}
-.sum .btn{width:100%}
-.methods{display:flex;gap:6px;justify-content:center;margin-top:12px;flex-wrap:wrap}
-.methods span{border:1px solid var(--line);border-radius:6px;padding:3px 9px;font-size:13px;font-weight:700}
-.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,120px);background:var(--asphalt);color:#fff;padding:12px 18px;border-radius:10px;z-index:50;transition:transform .3s,visibility .3s;font-size:15px;max-width:90%;visibility:hidden}
-.toast.show{transform:translate(-50%,0);visibility:visible}
-
-@media (max-width:960px){
-  .hero .wrap,.rent-grid,.shop2,.contact{grid-template-columns:1fr}
-  .hero-pic{order:-1;max-width:420px;margin:0 auto}
-  nav{display:none}
-  .cats{grid-template-columns:repeat(2,1fr)}
-  .cat:nth-child(2){border-right:0}
-  .cat:nth-child(-n+2){border-bottom:1px solid var(--line)}
-  .pay{grid-template-columns:repeat(2,1fr)}
-  .pay div:nth-child(2){border-right:0}
-  .pay div:nth-child(-n+2){border-bottom:1px solid var(--line)}
-  .reviews{grid-template-columns:1fr}
-}
-@media (max-width:520px){
-  .cat{font-size:16px;padding:16px 12px}
-  .cat img{width:40px}
-  .dates{grid-template-columns:1fr}
-  .bike img{width:80px}
-}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js"></script>
+<title>Tazebike · Bici, e-bike, noleggio e officina a Bari</title>
+<meta name="description" content="Tazebike Ciclofficina, Bari: bici ed e-bike Basso, Bergamont, XP, noleggio con disponibilità in tempo reale, riparazioni e restauro. Ordina online e paga anche in 3 rate.">
 </head>
 <body>
-
-<div class="draft">Bozza di nuovo sito realizzata da ClickBari. Prezzi e disponibilità di esempio.</div>
-
-<div class="top">
-  <div class="wrap">
-    <a class="logo" href="#" aria-label="Tazebike ciclofficina"><img src="https://irp.cdn-website.com/a1130d6c/dms3rep/multi/opt/0WO5p000003hRddGAE_WhatsAppImage2022-05-06at12.00.45-142w.png" alt=""><span><b>TAZEBIKE</b><small>ciclofficina</small></span></a>
-    <nav aria-label="Menu"><a href="#negozio">Negozio</a><a href="#noleggio">Noleggio</a><a href="#officina">Officina</a><a href="#contatti">Contatti</a></nav>
-    <button class="cart-btn" id="openCart" aria-label="Apri il carrello">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 4h2l2.4 11h11l2-8H6.2"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg>
-      Carrello <span class="badge" id="count">0</span>
-    </button>
-  </div>
-</div>
-
-<div class="hero">
+<main>
+<section class="hero" style="padding:0">
   <div class="wrap">
     <div>
-      <div class="kicker">Ciclofficina a Bari, Via Galvani 6/N</div>
-      <h1 class="display">L'officina<br>della <em>bici.</em></h1>
-      <p>Bici, e-bike e monopattini delle migliori marche, noleggio per qualche ora o per giorni, e riparazioni di tutti i tipi. Ora puoi anche ordinare online e pagare in 3 rate.</p>
-      <div class="hero-cta">
-        <a class="btn" href="#negozio">Vai al negozio</a>
-        <a class="btn line" href="#noleggio">Noleggia una bici</a>
+      <p class="jost" style="color:var(--leaf);font-weight:600;margin-bottom:12px">Ciclofficina a Bari, Via Galvani 6/N</p>
+      <h1>Bici nuove,<br>bici riparate,<br><span>bici a noleggio.</span></h1>
+      <p>Vendita di bici, e-bike e monopattini delle migliori marche, noleggio per qualche ora o per giorni e un'officina che ripara tutto. Ora anche online, con pagamento in 3 rate.</p>
+      <div class="cta">
+        <a class="btn" href="negozio.html">Vai al negozio</a>
+        <a class="btn ghost" href="noleggio.html">Noleggia una bici</a>
       </div>
-      <div class="speed">
-        <div><b>Basso · Bergamont</b><span>Rivenditore esclusivo a Bari</span></div>
-        <div><b>3 rate</b><span>Con Klarna, online</span></div>
-        <div><b>1 giorno gratis</b><span>Ogni settimana di noleggio</span></div>
-      </div>
+      <div class="proof" id="proof"></div>
     </div>
-    <div class="hero-pic">
-      <img src="https://irp.cdn-website.com/a1130d6c/dms3rep/multi/opt/bici-vendita-68d72d2a-14b4c57a-919w.png" alt="Bicicletta in vendita da Tazebike">
-    </div>
-  </div>
-</div>
-
-<div class="wrap">
-  <div class="cats">
-    <a class="cat" href="#negozio" data-go="bici"><img src="https://irp.cdn-website.com/a1130d6c/dms3rep/multi/opt/bici-3ac3b8b5-117w.png" alt="">Bici</a>
-    <a class="cat" href="#negozio" data-go="ebike"><img src="https://irp.cdn-website.com/a1130d6c/dms3rep/multi/opt/ebike-aff4d90e-117w.png" alt="">E-bike</a>
-    <a class="cat" href="#negozio" data-go="mono"><img src="https://irp.cdn-website.com/a1130d6c/dms3rep/multi/opt/monopattino-8f1eca08-117w.png" alt="">Monopattini</a>
-    <a class="cat" href="#negozio" data-go="acc"><img src="https://irp.cdn-website.com/a1130d6c/dms3rep/multi/opt/98781212e567-ciclo-accessori-caschi-big-wag-588400621-541w.png" alt="">Accessori</a>
-  </div>
-</div>
-
-<section id="negozio">
-  <div class="wrap">
-    <div class="head">
-      <div>
-        <h2 class="display">Negozio</h2>
-        <p class="sub">Prezzi chiari, disponibilità aggiornata. Ritiri in negozio o ricevi a casa.</p>
-      </div>
-      <div class="filters" role="group" aria-label="Filtra">
-        <button data-f="all" aria-pressed="true">Tutto</button>
-        <button data-f="bici" aria-pressed="false">Bici</button>
-        <button data-f="ebike" aria-pressed="false">E-bike</button>
-        <button data-f="acc" aria-pressed="false">Accessori</button>
-      </div>
-    </div>
-    <div class="grid" id="grid"></div>
-    <div class="pay">
-      <div><b>Carta o PayPal</b><span>Pagamento sicuro online</span></div>
-      <div><b>Klarna in 3 rate</b><span>Senza interessi, online</span></div>
-      <div><b>Compass e Santander</b><span>Finanziamenti in negozio</span></div>
-      <div><b>Ritiro o spedizione</b><span>In negozio o in tutta Italia</span></div>
+    <div class="collage">
+      <img src="img/emtb-gialla.jpg" alt="E-mountain bike gialla davanti al negozio">
+      <img src="img/gravel-viola.jpg" alt="Gravel viola nel parco">
+      <img src="img/cappellini.jpg" alt="Bici da corsa vintage e cappellini in negozio">
     </div>
   </div>
 </section>
+<div class="lane" style="background-color:var(--ink)"></div>
 
-<section id="noleggio" class="rent">
+<section>
   <div class="wrap">
-    <div class="head">
-      <div>
-        <h2 class="display">Noleggio</h2>
-        <p class="sub">Per qualche ora o per diversi giorni. Scegli la bici e le date: vedi subito quanto spendi. Paghi in negozio al ritiro.</p>
-      </div>
-    </div>
-    <div class="rent-grid">
-      <div class="fleet" role="group" aria-label="Scegli la bici">
-        <button class="bike" data-r="25" data-r2="20" data-n="Trekking" aria-pressed="true"><img src="https://irp.cdn-website.com/a1130d6c/dms3rep/multi/opt/_d1740_bergamont_horizon_4_lady_-_bici_da_trekking_-_donna_11410781_963266-293h.jpg" alt=""><div><b>Trekking</b><span>Per la città e il lungomare</span></div><div class="rate">€25<small>al giorno</small></div></button>
-        <button class="bike" data-r="25" data-r2="20" data-n="Tandem" aria-pressed="false"><img src="https://irp.cdn-website.com/a1130d6c/dms3rep/multi/opt/H4fcfc84ee62e4de5b03e7637f4006c79g-270w.jpg" alt=""><div><b>Tandem</b><span>In due, sulla stessa bici</span></div><div class="rate">€25<small>al giorno</small></div></button>
-        <button class="bike" data-r="40" data-r2="35" data-n="Gravel" aria-pressed="false"><img src="https://irp.cdn-website.com/a1130d6c/dms3rep/multi/opt/291091_1-270w.webp" alt=""><div><b>Gravel</b><span>Strade bianche e campagna</span></div><div class="rate">€40<small>al giorno</small></div></button>
-        <button class="bike" data-r="40" data-r2="35" data-n="E-trekking" aria-pressed="false"><img src="https://irp.cdn-website.com/a1130d6c/dms3rep/multi/opt/2-w-red-su-lista_b6ab6d5603a0e90-bdb670-969b963a-270w.webp" alt=""><div><b>E-trekking</b><span>Pedalata assistita, senza fatica</span></div><div class="rate">€40<small>al giorno</small></div></button>
-      </div>
-      <div class="planner">
-        <h3>Calcola il noleggio</h3>
-        <div class="dates">
-          <label>Ritiro<input type="date" id="d1"></label>
-          <label>Riconsegna<input type="date" id="d2"></label>
-        </div>
-        <div class="qty"><label>Quante bici?<select id="qty"><option>1</option><option selected>2</option><option>3</option><option>4</option></select></label></div>
-        <div class="track" id="track" aria-hidden="true"></div>
-        <div class="legend"><span>Giorno pagato</span><span class="f">Giorno gratis</span></div>
-        <div class="total"><div><span id="sumTxt"></span></div><b id="rentTotal">€0</b></div>
-        <a class="btn" id="rentBtn" href="#">Prenota su WhatsApp</a>
-        <p class="note">Primi 3 giorni a tariffa piena, dal 4° giorno tariffa ridotta, 1 giorno gratis ogni settimana. Nel sito finale: calendario con le bici disponibili.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="officina">
-  <div class="wrap shop2">
-    <div>
-      <h2 class="display">Officina</h2>
-      <p class="quote" style="margin-top:22px">Noi ripariamo tutto. Non chiederti, non chiederci se lo ripariamo: la risposta sarà, quasi sempre, sì.</p>
-      <p class="sub" style="margin-top:18px">Manutenzione e riparazione di bici, e-bike e monopattini elettrici, con ricambi originali. Personalizzazioni e restauri.</p>
-      <div class="hero-cta"><a class="btn dark" href="https://wa.me/393287392980?text=Ciao%2C%20vorrei%20un%20preventivo%20per%20una%20riparazione">Chiedi un preventivo su WhatsApp</a></div>
-    </div>
-    <div>
-      <ul class="services">
-        <li><span>Tagliando completo bici</span><span>da € — <span class="todo">prezzo</span></span></li>
-        <li><span>Regolazione freni e cambio</span><span>da € —</span></li>
-        <li><span>Riparazione foratura</span><span>da € —</span></li>
-        <li><span>Controllo e-bike e batteria</span><span>da € —</span></li>
-        <li><span>Riparazione monopattini</span><span>da € —</span></li>
-        <li><span>Personalizzazione e restauro</span><span>su preventivo</span></li>
-      </ul>
-      <p class="sub" style="font-size:14px;margin-top:10px">Listino trasparente: i prezzi li mettete voi.</p>
+    <div class="sec-head"><div><h2>Cosa cerchi?</h2><span class="dash"></span></div></div>
+    <div class="cats">
+      <a class="cat" href="negozio.html?cat=bici"><img src="img/basso-strada.jpg" alt=""><span>Bici<small>Corsa, gravel, MTB, città, bambini</small></span></a>
+      <a class="cat" href="negozio.html?cat=ebike"><img src="img/bergamont-ecity-blu.jpg" alt=""><span>E-bike<small>XP, Bergamont, pieghevoli, cargo</small></span></a>
+      <a class="cat" href="negozio.html?cat=acc"><img src="img/borse-telaio.jpg" alt=""><span>Accessori<small>Borse, caschi, occhiali, abbigliamento</small></span></a>
+      <a class="cat" href="noleggio.html"><img src="img/tandem.jpg" alt="" style="object-fit:contain;background:#fff"><span>Noleggio<small>Da €25 al giorno, 1 giorno gratis a settimana</small></span></a>
     </div>
   </div>
 </section>
 
 <section style="padding-top:0">
   <div class="wrap">
-    <p class="sub">Rivenditore autorizzato a Bari</p>
-    <div class="brands"><span>BASSO</span><span>BERGAMONT</span><span>XP</span><span>FOCARINI</span><span>TENWAYS</span><span>MBM</span><span>SMP</span><span>CINELLI</span><span>SPORTFUL</span><span>SCOTT</span><span>SHIMANO</span><span>EASTPAK</span><span>KNOG</span><span>BRN</span></div>
+    <div class="sec-head"><div><h2>In negozio adesso</h2><span class="dash"></span><p class="sub" style="margin-top:12px">Prezzi chiari, disponibilità aggiornata. Ritiri in negozio o ricevi a casa.</p></div><a class="btn ghost" href="negozio.html">Tutto il catalogo</a></div>
+    <div class="grid" id="featured"></div>
   </div>
 </section>
 
-<section style="padding-top:20px">
+<section class="slant-dark">
   <div class="wrap">
-    <h2 class="display" style="margin-bottom:24px">Dicono di noi</h2>
-    <div class="reviews">
-      <div class="rv"><span class="st" aria-label="5 stelle">★★★★★</span><p>"Great service for my roadbike! Fixed my problem in no time. Very friendly and professional owner…"</p><div class="who"><b>Thomas Schuller</b><span>Google</span></div></div>
-      <div class="rv"><span class="st" aria-label="5 stelle">★★★★★</span><p>"I was touring through Italy with my bike and somehow my back wheel spokes got loose… This bike shop deserves the Nobel bike prize! Thanks for your help guys!!"</p><div class="who"><b>Yves Leduc</b><span>Google</span></div></div>
-      <div class="rv"><span class="st" aria-label="5 stelle">★★★★★</span><p>"Was amazing in helping Drew repair his pilgrimage bike, thank you for doing that!"</p><div class="who"><b>Caroline N</b><span>Google</span></div></div>
-    </div>
-    <a class="g-link" href="https://www.google.com/maps/search/?api=1&query=Tazebike+Ciclofficina+Bari">Leggi tutte le recensioni su Google</a> <span class="todo">nel sito finale: recensioni aggiornate in automatico dalla scheda Google</span>
+    <div class="sec-head"><div><h2>Noleggio: guarda cosa è libero</h2><span class="dash" style="background:var(--leaf)"></span><p class="sub" style="margin-top:12px">Prima di venire, vedi quali bici sono disponibili e da quando. Prenoti in un minuto, paghi al ritiro.</p></div><a class="btn" href="noleggio.html">Prenota il noleggio</a></div>
+    <div class="board" id="board" style="background:#0B0C0C"></div>
   </div>
 </section>
 
-<section id="contatti" style="padding-top:20px">
-  <div class="wrap">
-    <div class="contact">
-      <div class="info">
-        <h2 class="display" style="font-size:52px">Vieni a trovarci</h2>
-        <dl style="display:grid;gap:16px">
-          <div><dt>Indirizzo</dt><dd>Via Galvani Luigi 6/N, 70125 Bari</dd></div>
-          <div><dt>Telefono e WhatsApp</dt><dd><a href="tel:+393287392980">328 739 2980</a></dd></div>
-          <div><dt>Email</dt><dd><a href="mailto:tazebikeciclofficina@gmail.com">tazebikeciclofficina@gmail.com</a></dd></div>
-          <div><dt>Orari</dt><dd><span class="todo">da inserire</span></dd></div>
-          <div><dt>Social</dt><dd><a href="https://www.instagram.com/tazebikeofficial/">Instagram</a> · <a href="https://www.facebook.com/tazebike/">Facebook</a></dd></div>
-        </dl>
+<section>
+  <div class="wrap two">
+    <div>
+      <p class="hand" style="font-size:44px;line-height:1">Tutto si ripara!</p>
+      <h2 style="margin-top:6px">Officina per bici, e-bike e monopattini</h2>
+      <span class="dash"></span>
+      <p class="sub" style="margin-top:16px">Bici da strada, mountain bike, vintage ed e-bike, con ricambi originali. Non riesci a portarcela? Veniamo noi a ritirarla e te la riportiamo a casa.</p>
+      <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+        <a class="btn" href="officina.html#prenota">Prenota una riparazione</a>
+        <a class="btn ghost" href="officina.html#ritiro">Ritiro a domicilio</a>
       </div>
-      <iframe title="Mappa Tazebike" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Tazebike,+Via+Luigi+Galvani+6,+Bari&output=embed"></iframe>
+    </div>
+    <div class="ba" style="justify-self:center;width:100%">
+      <img src="img/restauro-prima.jpg" alt="Bici vintage prima del restauro">
+      <img class="after" src="img/restauro-dopo.jpg" alt="La stessa bici dopo il restauro in officina">
+      <div class="handle"></div>
+      <input type="range" min="0" max="100" value="50" aria-label="Confronta prima e dopo il restauro">
     </div>
   </div>
 </section>
 
-<div class="wrap">
-  <footer>
-    <span>© 2026 Tazebike Ciclofficina · P.IVA 08505640725</span>
-    <span>Sito realizzato da <a href="https://clickbari.it" rel="nofollow">ClickBari</a></span>
-  </footer>
-</div>
-
-<!-- Cart -->
-<div class="scrim" id="scrim"></div>
-<aside class="drawer" id="drawer" aria-label="Carrello" aria-hidden="true">
-  <header><h3>Carrello</h3><button class="x" id="closeCart" aria-label="Chiudi">×</button></header>
-  <div class="items" id="items"></div>
-  <div class="ship" role="radiogroup" aria-label="Consegna">
-    <label><input type="radio" name="ship" value="0" checked><span>Ritiro in negozio</span><span>Gratis</span></label>
-    <label><input type="radio" name="ship" value="9.9"><span>Spedizione accessori</span><span>€ 9,90</span></label>
-    <label><input type="radio" name="ship" value="49"><span>Spedizione bici in tutta Italia</span><span>€ 49</span></label>
+<section class="slant-sage">
+  <div class="wrap">
+    <p class="sub">Rivenditore autorizzato a Bari</p>
+    <div class="brands" style="margin-top:10px"><span>BASSO</span><span>BERGAMONT</span><span>XP</span><span>FOCARINI</span><span>TENWAYS</span><span>MBM</span><span>SMP</span><span>CINELLI</span><span>SPORTFUL</span><span>SCOTT</span><span>SHIMANO</span><span>EASTPAK</span><span>KNOG</span><span>BRN</span></div>
   </div>
-  <div class="sum">
-    <div class="row"><span>Prodotti</span><span id="sub">€ 0</span></div>
-    <div class="row"><span>Consegna</span><span id="shipCost">Gratis</span></div>
-    <div class="row t"><span>Totale</span><span id="tot">€ 0</span></div>
-    <p class="k" id="k3"></p>
-    <button class="btn" id="checkout">Vai al pagamento</button>
-    <div class="methods"><span>VISA</span><span>Mastercard</span><span>PayPal</span><span>Klarna</span><span>Apple Pay</span></div>
-  </div>
-</aside>
-<div class="toast" id="toast" role="status"></div>
+</section>
 
+<section>
+  <div class="wrap">
+    <div class="sec-head"><div><h2>Dicono di noi</h2><span class="dash"></span></div></div>
+    <div id="reviews"></div>
+  </div>
+</section>
+</main>
 <script>
-const IMG='https://irp.cdn-website.com/a1130d6c/dms3rep/multi/opt/';
-const P=[
- {id:1,c:'ebike',b:'Tenways',n:'E-bike urbana',p:1499,s:'in',img:IMG+'2-w-red-su-lista_b6ab6d5603a0e90-bdb670-969b963a-270w.webp'},
- {id:2,c:'bici',b:'Bergamont',n:'Horizon 4 Lady, trekking',p:749,s:'in',img:IMG+'_d1740_bergamont_horizon_4_lady_-_bici_da_trekking_-_donna_11410781_963266-293h.jpg'},
- {id:3,c:'bici',b:'Basso',n:'Bici gravel',p:1290,s:'order',img:IMG+'291091_1-270w.webp'},
- {id:4,c:'acc',b:'Accessori',n:'Casco da città',p:59,s:'in',img:IMG+'98781212e567-ciclo-accessori-caschi-big-wag-588400621-541w.png'},
- {id:5,c:'acc',b:'Polisport',n:'Seggiolino bimbo da portapacchi',p:79,s:'in',img:IMG+'polisport-koari-mik-hd-child-bike-seat-for-cargo-rack-black-grey-a-1919429-541w.jpg'},
- {id:6,c:'acc',b:'BRN',n:'Borsa laterale Free Life',p:45,s:'order',img:IMG+'BO48GR_borse-brn-free-life-separate-tessuto_0_Z+%281%29-541w.jpg'}
-];
-const eur=v=>'€ '+(Number.isInteger(v)?v.toLocaleString('it-IT'):v.toLocaleString('it-IT',{minimumFractionDigits:2,maximumFractionDigits:2}));
-const grid=document.getElementById('grid');
-let filter='all';
-function renderGrid(){
-  grid.innerHTML='';
-  P.filter(x=>filter==='all'||x.c===filter).forEach(x=>{
-    const el=document.createElement('article');el.className='card';
-    el.innerHTML=`<div class="pic"><span class="stock ${x.s}">${x.s==='in'?'Disponibile in negozio':'Su ordinazione'}</span><img src="${x.img}" alt="${x.n}" loading="lazy"></div>
-    <div class="body"><span class="brand">${x.b}</span><h3>${x.n}</h3><div class="price">${eur(x.p)}</div>
-    <div class="klarna">o 3 rate da <b>${eur(Math.round(x.p/3*100)/100)}</b> con Klarna</div>
-    <button class="add" data-id="${x.id}">Aggiungi al carrello</button></div>`;
-    grid.appendChild(el);
-  });
-}
-document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{filter=b.dataset.f;document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));renderGrid();});
-document.querySelectorAll('[data-go]').forEach(a=>a.addEventListener('click',()=>{const f=a.dataset.go==='mono'?'all':a.dataset.go;const b=document.querySelector(`.filters [data-f="${f}"]`);b&&b.click();}));
-
-/* cart (demo, in memory) */
-const cart=[];
-const toast=m=>{const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2600);};
-grid.addEventListener('click',e=>{
-  const b=e.target.closest('.add');if(!b)return;
-  const x=P.find(p=>p.id==b.dataset.id);cart.push(x);
-  b.textContent='Aggiunto ✓';b.classList.add('done');setTimeout(()=>{b.textContent='Aggiungi al carrello';b.classList.remove('done');},1400);
-  renderCart();toast(x.n+' aggiunto al carrello');
-});
-function renderCart(){
-  document.getElementById('count').textContent=cart.length;
-  const it=document.getElementById('items');
-  it.innerHTML=cart.length?'':'<p class="empty">Il carrello è vuoto.</p>';
-  cart.forEach((x,i)=>{const d=document.createElement('div');d.className='it';d.innerHTML=`<img src="${x.img}" alt=""><div><b>${x.n}</b>${eur(x.p)}</div><button data-i="${i}">Rimuovi</button>`;it.appendChild(d);});
-  const sub=cart.reduce((a,x)=>a+x.p,0);
-  const ship=+document.querySelector('[name=ship]:checked').value;
-  const tot=sub+(cart.length?ship:0);
-  document.getElementById('sub').textContent=eur(sub);
-  document.getElementById('shipCost').textContent=ship&&cart.length?eur(ship):'Gratis';
-  document.getElementById('tot').textContent=eur(tot);
-  document.getElementById('k3').textContent=cart.length?`Oppure 3 rate da ${eur(Math.round(tot/3*100)/100)} con Klarna, senza interessi.`:'';
-}
-document.getElementById('items').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cart.splice(+b.dataset.i,1);renderCart();});
-document.querySelector('.ship').addEventListener('change',renderCart);
-const drawer=document.getElementById('drawer'),scrim=document.getElementById('scrim');
-const openC=()=>{drawer.classList.add('open');scrim.classList.add('open');drawer.setAttribute('aria-hidden','false');};
-const closeC=()=>{drawer.classList.remove('open');scrim.classList.remove('open');drawer.setAttribute('aria-hidden','true');};
-document.getElementById('openCart').onclick=openC;document.getElementById('closeCart').onclick=closeC;scrim.onclick=closeC;
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeC();});
-document.getElementById('checkout').onclick=()=>toast(cart.length?'Demo: qui si apre il pagamento sicuro Stripe (carta, PayPal, Klarna).':'Aggiungi prima un prodotto.');
-
-/* rental */
-let bike=document.querySelector('.bike[aria-pressed="true"]');
-document.querySelectorAll('.bike').forEach(b=>b.onclick=()=>{bike=b;document.querySelectorAll('.bike').forEach(x=>x.setAttribute('aria-pressed',x===b));calcRent();});
-const d1=document.getElementById('d1'),d2=document.getElementById('d2'),qty=document.getElementById('qty');
-const iso=d=>d.toISOString().slice(0,10);
-const t0=new Date();t0.setDate(t0.getDate()+1);const t1=new Date(t0);t1.setDate(t1.getDate()+6);
-d1.value=iso(t0);d2.value=iso(t1);d1.min=iso(new Date());
-function calcRent(){
-  let days=Math.round((new Date(d2.value)-new Date(d1.value))/864e5)+1;
-  if(!(days>0))days=1; if(days>28)days=28;
-  const r=+bike.dataset.r,r2=+bike.dataset.r2,q=+qty.value;
-  const track=document.getElementById('track');track.innerHTML='';
-  let tot=0,free=0;
-  for(let i=1;i<=days;i++){
-    const isFree=i%7===0; const el=document.createElement('i');
-    if(isFree){free++;el.className='free';el.textContent='0';}
-    else{const v=i<=3?r:r2;tot+=v;el.className='paid';el.textContent=v;}
-    track.appendChild(el);
-  }
-  tot*=q;
-  document.getElementById('rentTotal').textContent='€'+tot;
-  document.getElementById('sumTxt').textContent=`${q} × ${bike.dataset.n}, ${days} ${days===1?'giorno':'giorni'}${free?`, ${free} gratis`:''}`;
-  const msg=`Ciao Tazebike, vorrei noleggiare ${q} bici ${bike.dataset.n} dal ${d1.value.split('-').reverse().join('/')} al ${d2.value.split('-').reverse().join('/')}. Totale indicato sul sito: €${tot}.`;
-  document.getElementById('rentBtn').href='https://wa.me/393287392980?text='+encodeURIComponent(msg);
-}
-[d1,d2,qty].forEach(el=>el.addEventListener('input',calcRent));
-renderGrid();renderCart();calcRent();
+layout('home');
+const st=openState();
+$('#proof').innerHTML=`<a href="${GOOGLE_URL}" target="_blank" rel="noopener"><b>4,8</b><span><span class="stars">★★★★★</span><br>200 recensioni Google</span></a>
+<div style="display:flex;align-items:center;gap:10px"><b>3 rate</b><span>con Klarna,<br>senza interessi</span></div>
+<div style="display:flex;align-items:center;gap:10px"><b>1 giorno</b><span>di noleggio gratis<br>ogni settimana</span></div>`;
+$('#featured').innerHTML=['xp-id92','grandurance','basso-strada','bergamont-ecity','borse-telaio','graziella','occhiali-outof','monopattino'].map(id=>cardHTML(product(id))).join('');
+$('#board').innerHTML=boardHTML(7);
+$('#reviews').innerHTML=reviewsHTML();
+initBA();
 </script>
 </body>
 </html>
